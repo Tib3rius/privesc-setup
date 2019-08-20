@@ -19,3 +19,10 @@ chmod o+w /etc/passwd &> /dev/null
 
 echo "Adding LD_LIBRARY_PATH to /etc/sudoers."
 sed -i -r -e 's/env_keep\+=LD_PRELOAD/env_keep+=LD_PRELOAD\nDefaults env_keep+=LD_LIBRARY_PATH/' /etc/sudoers &> /dev/null
+
+echo "Changing OpenVPN credentials."
+sed -i -r -e 's/user/root/' /etc/openvpn/auth.txt &> /dev/null
+sed -i -r -e 's/password321/password123/' /etc/openvpn/auth.txt &> /dev/null
+
+echo ""
+echo "Done."
